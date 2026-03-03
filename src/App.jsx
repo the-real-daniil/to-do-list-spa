@@ -1,6 +1,12 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 function App() {
+  const appTitle = import.meta.env.APP_TITLE || "To-Do List";
+
+  useEffect(() => {
+    document.title = appTitle;
+  }, [appTitle]);
+
   const [tasks, setTasks] = useState([]);
   const [text, setText] = useState("");
 
@@ -36,7 +42,7 @@ function App() {
   return (
     <main className="app">
       <section className="card">
-        <h1>To-Do List</h1>
+        <h1>{appTitle}</h1>
         <p className="subtitle">
           Выполнено: {completedCount} / {tasks.length}
         </p>
