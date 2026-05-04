@@ -6,10 +6,6 @@ COPY package.json package-lock.json* ./
 RUN npm ci
 
 COPY . .
-
-ARG APP_TITLE
-ENV APP_TITLE=$APP_TITLE
-
 RUN npm run build
 
 
